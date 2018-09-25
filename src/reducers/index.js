@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import Filters from './Filters';
 import Submmisions from './Submissions';
+import MenuBar from './MenuBar'
 
 export default combineReducers({
-    Filters,
-    Submmisions
+    Submmisions,
+    MenuBar
 });

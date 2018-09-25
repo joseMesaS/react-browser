@@ -1,16 +1,14 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 
-const TopBar = styled.div`
-  position: fixed;
-  top: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100vw;
-  height: 77px;
-  background-color: blue;
+const FilterBar = styled.div`
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: red;
 `
 
 class FilterBarComponent extends PureComponent {
@@ -23,12 +21,18 @@ class FilterBarComponent extends PureComponent {
   }
 
   render() {
-    return ( 
-      <TopBar>
-        
-      </TopBar>
+    return (
+        <div>
+            {this.props.activeMenu && <FilterBar></FilterBar>}
+        </div> 
     );
   }
 }
 
-export default FilterBarComponent
+const mapStateToProps = function (state) {
+    return {
+      activeMenu: state.MenuBar
+    }
+};
+
+export default connect(mapStateToProps)(FilterBarComponent)
