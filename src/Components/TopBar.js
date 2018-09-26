@@ -9,18 +9,18 @@ import { activeFilterMenu } from '../actions/Submissions';
 import {connect} from 'react-redux';
 
 const TopBar = styled.div`
-  position: absolute;
-  top: 0;
+  position:relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 100vw;
   height: 77px;
   background-color: white;
+  min-height: 60px !important;
 `
 const Logo = styled.img`
-  width: 330px;
+  width: 300px;
 `
 const FilterOptions = styled.div`
   display: flex;

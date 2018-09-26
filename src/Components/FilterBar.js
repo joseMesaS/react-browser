@@ -1,20 +1,21 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
+import { sortByDateAsc, sortByDateDesc } from '../actions/Submissions'
+import DateFilterComponent from './DateFilter'
+
 
 const FilterBar = styled.div`
-  position: absolute;
-  left: 0;
-  width: 300px;
-  height: 100%;
-  background-color: red;
+  
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-color: #E4351D;
+
 `
 
 class FilterBarComponent extends PureComponent {
-  static propTypes = {
-    logo: PropTypes.string.isRequired
-  }
+ 
 
   createElement = (element) => {
     this.props.sendRequest(element)
@@ -23,7 +24,12 @@ class FilterBarComponent extends PureComponent {
   render() {
     return (
         <div>
-            {this.props.activeMenu && <FilterBar></FilterBar>}
+            {this.props.activeMenu && 
+            <FilterBar>
+                <button onClick={this.props.sortByDateDesc}> desc</button>
+                <button onClick={this.props.sortByDateAsc}>asc</button>
+                <DateFilterComponent/>
+            </FilterBar>}
         </div> 
     );
   }
@@ -35,4 +41,4 @@ const mapStateToProps = function (state) {
     }
 };
 
-export default connect(mapStateToProps)(FilterBarComponent)
+export default connect(mapStateToProps, {sortByDateAsc, sortByDateDesc})(FilterBarComponent)

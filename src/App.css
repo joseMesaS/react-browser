@@ -1,9 +1,12 @@
 .App {
   height: 100vh;
   text-align: center;
-  margin-top: 77px;
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
+}
+
+::-webkit-scrollbar { 
+  display: none; 
 }
 
 .App-logo {
@@ -30,3 +33,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.commentBox ul {
+  
+  bottom: 0;
+  display: inline-block;
+  padding-left: 0;
+  
+}
+
+.commentBox li {
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
